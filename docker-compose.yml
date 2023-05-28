@@ -1,19 +1,40 @@
-version: "3"
-
+version: "3.7"
 services:
-  microservicio-back:
-    container_name: microservicio-back
-    restart: always
-    build: .
+  proyectos-backend-micro:
+    container_name: proyectos-backend-micro
+    image: proyectos-backend-micro:v1
+    build:
+      context: .
     ports:
-      - "5030:3030"
-    links:
-      - mongo
-    volumes:
-      - .:/usr/src/app
+      - "4002"
+    networks:
+      - proyectos-app
 
-  mongo:
-    container_name: mongoms
-    image: mongo
+  proyectos-backend-micro-2:
+    container_name: proyectos-backend-micro-2
+    image: proyectos-backend-micro:v1
     ports:
-      - "27030:27025"
+      - "4002"
+    networks:
+      - proyectos-app
+
+  proyectos-backend-micro-3:
+    container_name: proyectos-backend-micro-3
+    image: proyectos-backend-micro:v1
+    ports:
+      - "4002"
+    networks:
+      - proyectos-app
+
+  balanceador-carga:
+    container_name: balanceador-carga
+    image: balanceador-carga:v1
+    build:
+      context: ./balanceador
+    ports:
+      - "4004:80"
+    networks:
+      - proyectos-app
+
+networks:
+  proyectos-app:
