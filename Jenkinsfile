@@ -40,7 +40,7 @@ pipeline {
                 subject: "Estado del build: ${currentBuild.currentResult}",
                 body: "Se ha completado el despliegue. Ver detalles: ${env.BUILD_URL}",
                 to: 'yobany.vicentes@est.iudigital.edu.co',
-                from: 'yobany.vicentes@est.iudigital.edu.co'
+                from: 'jenkins@iudigital.edu.co'
             )
         }
     }
