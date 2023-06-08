@@ -6,7 +6,7 @@ require('dotenv').config();
 const usuarioAtlas = process.env.USER;
 const passAtlas = process.env.PASS;
 const dataBase = process.env.DB;
-
+ 
 //crear funcion getConnection asincrona:
 const getConnection = async () => {
   try {

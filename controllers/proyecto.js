@@ -6,7 +6,7 @@ const Proyecto = require('../models/proyecto');
 const getProyectos = async (req = request, res = response) => {
     try {
         const proyectos = await Proyecto.find();
-        res.status(200).send(proyectos).json();
+        return res.status(200).send(proyectos);
     } catch (e) {
         return res.status(500).json({
             msg: 'Error el procesar la solicitud: ' + e
@@ -31,7 +31,7 @@ const postProyecto = async (req = request, res = response) => {
 
         await proyecto.save();
 
-        return res.status(201).json(proyecto);
+        return res.status(201).send(proyecto);
     }catch(e){
         return res.status(500).json({
             msg: 'Error general' + e
@@ -68,7 +68,7 @@ const putProyecto = async (req = request, res = response) => {
 
         proyecto = await proyecto.save();
 
-        res.status(200).send(proyecto).json();
+        return res.status(200).send(proyecto);
 
     }catch(e){
         console.log(e);
