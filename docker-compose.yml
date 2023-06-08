@@ -13,28 +13,6 @@ services:
     networks:
       - proyectos-app
 
-  proyectos_micro_2:
-    container_name: proyectos_micro_2
-    image: proyectos_micro:latest
-    ports:
-      - "4002"
-    environment:
-      - MONGO_URI=${MONGO_URI}
-      - PORT=4002
-    networks:
-      - proyectos-app
-
-  proyectos_micro_3:
-    container_name: proyectos_micro_3
-    image: proyectos_micro:latest
-    ports:
-      - "4002"
-    environment:
-      - MONGO_URI=${MONGO_URI}
-      - PORT=4002
-    networks:
-      - proyectos-app
-
   balanceador-carga:
     container_name: balanceador-carga
     image: balanceador-carga:latest
