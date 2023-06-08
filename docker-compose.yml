@@ -7,6 +7,9 @@ services:
       context: .
     ports:
       - "4002"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=4002
     networks:
       - proyectos-app
 
@@ -15,6 +18,9 @@ services:
     image: proyectos_micro:latest
     ports:
       - "4002"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=4002
     networks:
       - proyectos-app
 
@@ -23,6 +29,9 @@ services:
     image: proyectos_micro:latest
     ports:
       - "4002"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=4002
     networks:
       - proyectos-app
 
